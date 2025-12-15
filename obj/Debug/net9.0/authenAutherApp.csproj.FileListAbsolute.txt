@@ -1,0 +1,14 @@
+E:\selfDevelopment\Projects\authenAutherApp\bin\Debug\net9.0\authenAutherApp.exe
+E:\selfDevelopment\Projects\authenAutherApp\bin\Debug\net9.0\authenAutherApp.deps.json
+E:\selfDevelopment\Projects\authenAutherApp\bin\Debug\net9.0\authenAutherApp.runtimeconfig.json
+E:\selfDevelopment\Projects\authenAutherApp\bin\Debug\net9.0\authenAutherApp.dll
+E:\selfDevelopment\Projects\authenAutherApp\bin\Debug\net9.0\authenAutherApp.pdb
+E:\selfDevelopment\Projects\authenAutherApp\obj\Debug\net9.0\authenAutherApp.GeneratedMSBuildEditorConfig.editorconfig
+E:\selfDevelopment\Projects\authenAutherApp\obj\Debug\net9.0\authenAutherApp.AssemblyInfoInputs.cache
+E:\selfDevelopment\Projects\authenAutherApp\obj\Debug\net9.0\authenAutherApp.AssemblyInfo.cs
+E:\selfDevelopment\Projects\authenAutherApp\obj\Debug\net9.0\authenAutherApp.csproj.CoreCompileInputs.cache
+E:\selfDevelopment\Projects\authenAutherApp\obj\Debug\net9.0\authenAutherApp.dll
+E:\selfDevelopment\Projects\authenAutherApp\obj\Debug\net9.0\refint\authenAutherApp.dll
+E:\selfDevelopment\Projects\authenAutherApp\obj\Debug\net9.0\authenAutherApp.pdb
+E:\selfDevelopment\Projects\authenAutherApp\obj\Debug\net9.0\authenAutherApp.genruntimeconfig.cache
+E:\selfDevelopment\Projects\authenAutherApp\obj\Debug\net9.0\ref\authenAutherApp.dll
