@@ -1,0 +1,12 @@
+2025-12-15 22:03:05.268 +02:00 [INF] User profile is available. Using 'C:\Users\Di63\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-15 22:03:05.806 +02:00 [INF] Now listening on: http://localhost:5000
+2025-12-15 22:03:05.815 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-15 22:03:05.820 +02:00 [INF] Hosting environment: Development
+2025-12-15 22:03:05.824 +02:00 [INF] Content root path: E:\selfDevelopment\Projects\authenAutherApp
+2025-12-15 22:03:21.785 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/User/signup - application/json 118
+2025-12-15 22:03:22.106 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-12-15 22:03:22.191 +02:00 [INF] Executing endpoint 'authenAutherApp.Controllers.UserController.Signup (authenAutherApp)'
+2025-12-15 22:03:22.268 +02:00 [INF] Route matched with {action = "Signup", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Signup(authenAutherApp.Dtos.Request.SignUpRequest) on controller authenAutherApp.Controllers.UserController (authenAutherApp).
+2025-12-15 22:03:23.448 +02:00 [INF] Executed action authenAutherApp.Controllers.UserController.Signup (authenAutherApp) in 1157.7179ms
+2025-12-15 22:03:23.523 +02:00 [INF] Executed endpoint 'authenAutherApp.Controllers.UserController.Signup (authenAutherApp)'
+2025-12-15 22:03:23.544 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/User/signup - 400 null application/json; charset=utf-8 1771.5369ms

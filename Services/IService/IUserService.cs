@@ -8,5 +8,6 @@ namespace authenAutherApp.Services.IService
     {
         Task<SignInResponse> SiginAsync(SignInRequest request);
         Task<SignUpResponse> SignupAsync(SignUpRequest request);
+        Task<ResponseModel<List<UserReponse>>> GetAllUsers();
     }
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>authenAutherApp</name>
+    </assembly>
+    <members>
+        <member name="T:authenAutherApp.Migrations.intialMigration">
+            <inheritdoc />
+        </member>
+        <member name="M:authenAutherApp.Migrations.intialMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:authenAutherApp.Migrations.intialMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:authenAutherApp.Migrations.intialMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:authenAutherApp.Migrations.fullnameToDb">
+            <inheritdoc />
+        </member>
+        <member name="M:authenAutherApp.Migrations.fullnameToDb.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:authenAutherApp.Migrations.fullnameToDb.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:authenAutherApp.Migrations.fullnameToDb.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:authenAutherApp.Migrations.checkApplicationUser">
+            <inheritdoc />
+        </member>
+        <member name="M:authenAutherApp.Migrations.checkApplicationUser.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:authenAutherApp.Migrations.checkApplicationUser.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:authenAutherApp.Migrations.checkApplicationUser.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Program">
+            <summary>
+            Auto-generated public partial Program class for top-level statement apps.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -5,22 +5,32 @@ using authenAutherApp.Dtos.Request;
 using authenAutherApp.Dtos.Response;
 using authenAutherApp.Response;
 using authenAutherApp.Services.IService;
+using AuthenAutherApp.Data.AppDbContext;
 using AuthenAutherApp.Models.Identity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 
 namespace authenAutherApp.Services.Service
 {
     public class UserService : IUserService
     {
+
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly ApplicationDbContext _context;
+        private readonly DbSet<ApplicationUser> _user;
         private readonly IConfiguration _configuration;
-        public UserService(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IConfiguration configuration)
+        public UserService(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ApplicationDbContext context, IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _configuration = configuration;
+            _context = context;
+
+            _user = _context.Users;
+
         }
         public Task<SignInResponse> SiginAsync(SignInRequest request)
         {
@@ -29,14 +39,19 @@ namespace authenAutherApp.Services.Service
 
         public async Task<SignUpResponse> SignupAsync(SignUpRequest request)
         {
+            Log.Information("Starting user signup process...");
             var user = new ApplicationUser
             {
                 FullName = request.UserName,
                 Email = request.Email,
+                UserName = request.Email,
                 EmailConfirmed = false
             };
 
             var result = await _userManager.CreateAsync(user, request.Password);
+            Log.Information("User creation process completed.");
+
+            Log.Error($"request failed: {result.Errors}");
 
             if (result.Succeeded)
             {
@@ -45,7 +60,7 @@ namespace authenAutherApp.Services.Service
                 return new SignUpResponse
                 {
                     UserId = user.Id,
-                    Message = "User created successfully",
+                    Message = $"User {user.FullName} created successfully",
                     Token = token
                 };
             }
@@ -56,6 +71,35 @@ namespace authenAutherApp.Services.Service
                     UserId = null,
                     Message = "User creation failed",
                     Token = null
+                };
+            }
+        }
+
+        public async Task<ResponseModel<List<UserReponse>>> GetAllUsers()
+        {
+            try
+            {
+                var response = new List<UserReponse>();
+                var users = await _user.ToListAsync();
+                if (users != null)
+                {
+                    response = users.Select(x => new UserReponse { UserId = x.Id, Email = x.UserName }).ToList();
+
+                }
+                return new ResponseModel<List<UserReponse>>
+                {
+                    Success = true,
+                    Message = "success",
+                    Result = response
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel<List<UserReponse>>
+                {
+                    Success = false,
+                    Message = "false",
+
                 };
             }
         }

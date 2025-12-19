@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "authenAutherApp.Controllers.UserController",
+    "Method": "GetAll",
+    "RelativePath": "api/User/GetAllUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "authenAutherApp.Controllers.UserController",
+    "Method": "Signup",
+    "RelativePath": "api/User/signup",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "authenAutherApp.Dtos.Request.SignUpRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
