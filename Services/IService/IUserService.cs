@@ -6,7 +6,7 @@ namespace authenAutherApp.Services.IService
 {
     public interface IUserService
     {
-        Task<SignInResponse> SiginAsync(SignInRequest request);
+        Task<SignInResponse> SigInAsync(SignInRequest request);
         Task<SignUpResponse> SignupAsync(SignUpRequest request);
         Task<ResponseModel<List<UserReponse>>> GetAllUsers();
     }

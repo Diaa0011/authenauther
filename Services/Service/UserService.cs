@@ -32,9 +32,49 @@ namespace authenAutherApp.Services.Service
             _user = _context.Users;
 
         }
-        public Task<SignInResponse> SiginAsync(SignInRequest request)
+        public async Task<SignInResponse> SigInAsync(SignInRequest request)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var user = await _userManager.FindByEmailAsync(request.UserName);
+                var result = await _signInManager.PasswordSignInAsync(user, request.Password, true, true);
+
+                if (result.Succeeded)
+                {
+                    var token = GenerateJwtToken(user);
+                    return new SignInResponse
+                    {
+                        Token = token,
+                        isSuccess = true
+                    };
+                }
+                else if (result.IsLockedOut)
+                {
+                    return new SignInResponse
+                    {
+                        isSuccess = false,
+                        Message = "Too many log in Attempt wait for an hour to release the lock"
+                    };
+                }
+                else
+                {
+                    return new SignInResponse
+                    {
+                        isSuccess = false,
+                        Message = "Something wrong happend"
+                    };
+                }
+            }
+            catch (Exception ex) {
+                {
+                    return new SignInResponse
+                    {
+                        isSuccess = false,
+                        Message = $"Exception raise: {ex.Message}"
+                    };
+                }
+
+            }
         }
 
         public async Task<SignUpResponse> SignupAsync(SignUpRequest request)

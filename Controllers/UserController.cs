@@ -35,15 +35,15 @@ namespace authenAutherApp.Controllers
             return Ok(response);
         }
 
-        // [HttpPost("signin")]
-        // public async Task<IActionResult> Signin([FromBody] SignInRequest request)
-        // {
-        //     var response = await _userService.SiginAsync(request);
-        //     if (response.IsSuccess)
-        //     {
-        //         return Ok(response);
-        //     }
-        //     return Unauthorized(response);
-        // }
+        [HttpPost("signIn")]
+        public async Task<IActionResult> Signin([FromBody] SignInRequest request)
+        {
+            var response = await _userService.SigInAsync(request);
+            if (response.isSuccess)
+            {
+                return Ok(response);
+            }
+            return Unauthorized(response);
+        }
     }
 }

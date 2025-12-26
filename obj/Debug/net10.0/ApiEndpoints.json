@@ -11,6 +11,22 @@
   },
   {
     "ContainingType": "authenAutherApp.Controllers.UserController",
+    "Method": "Signin",
+    "RelativePath": "api/User/signIn",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "authenAutherApp.Dtos.Request.SignInRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "authenAutherApp.Controllers.UserController",
     "Method": "Signup",
     "RelativePath": "api/User/signup",
     "HttpMethod": "POST",

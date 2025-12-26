@@ -226,3 +226,4 @@ E:\selfDevelopment\Projects\authenAutherApp\bin\Debug\net10.0\Serilog.Formatting
 E:\selfDevelopment\Projects\authenAutherApp\bin\Debug\net10.0\Serilog.Settings.Configuration.dll
 E:\selfDevelopment\Projects\authenAutherApp\bin\Debug\net10.0\Serilog.Sinks.Debug.dll
 E:\selfDevelopment\Projects\authenAutherApp\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+E:\selfDevelopment\Projects\authenAutherApp\obj\Debug\net10.0\authenAutherApp.sourcelink.json

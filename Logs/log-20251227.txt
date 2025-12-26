@@ -1,0 +1,98 @@
+2025-12-27 00:06:57.426 +02:00 [INF] User profile is available. Using 'C:\Users\Di63\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-27 00:06:59.712 +02:00 [INF] Now listening on: http://localhost:5000
+2025-12-27 00:07:00.140 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-27 00:07:00.154 +02:00 [INF] Hosting environment: Development
+2025-12-27 00:07:00.164 +02:00 [INF] Content root path: E:\selfDevelopment\Projects\authenAutherApp
+2025-12-27 00:07:04.977 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-12-27 00:07:06.035 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1139.7221ms
+2025-12-27 00:07:06.212 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2025-12-27 00:07:06.347 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 138.6544ms
+2025-12-27 00:08:40.647 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/User/signIn - application/json 65
+2025-12-27 00:08:40.700 +02:00 [INF] CORS policy execution successful.
+2025-12-27 00:08:40.709 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-12-27 00:08:41.399 +02:00 [INF] Executing endpoint 'authenAutherApp.Controllers.UserController.Signin (authenAutherApp)'
+2025-12-27 00:08:41.509 +02:00 [INF] Route matched with {action = "Signin", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Signin(authenAutherApp.Dtos.Request.SignInRequest) on controller authenAutherApp.Controllers.UserController (authenAutherApp).
+2025-12-27 00:08:42.894 +02:00 [INF] Executing action method authenAutherApp.Controllers.UserController.Signin (authenAutherApp) - Validation state: "Valid"
+2025-12-27 00:08:50.592 +02:00 [INF] Executed DbCommand (291ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[FullName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2025-12-27 00:08:52.189 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@user_Id='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @user_Id
+2025-12-27 00:08:52.403 +02:00 [INF] Executed DbCommand (46ms) [Parameters=[@userId='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @userId
+2025-12-27 00:08:52.577 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-12-27 00:08:52.925 +02:00 [INF] Executed action method authenAutherApp.Controllers.UserController.Signin (authenAutherApp), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 9975.1384ms.
+2025-12-27 00:08:53.018 +02:00 [INF] Executing OkObjectResult, writing value of type 'authenAutherApp.Dtos.Response.SignInResponse'.
+2025-12-27 00:08:53.093 +02:00 [INF] Executed action authenAutherApp.Controllers.UserController.Signin (authenAutherApp) in 11555.5544ms
+2025-12-27 00:08:53.148 +02:00 [INF] Executed endpoint 'authenAutherApp.Controllers.UserController.Signin (authenAutherApp)'
+2025-12-27 00:08:53.248 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/User/signIn - 200 null application/json; charset=utf-8 12601.795ms
+2025-12-27 00:09:15.057 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/User/GetAllUsers - null null
+2025-12-27 00:09:15.432 +02:00 [INF] Failed to validate the token.
+System.ArgumentException: IDX14102: Unable to decode the header '[PII of type 'Microsoft.IdentityModel.Logging.SecurityArtifact' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]' as Base64Url encoded string.
+ ---> System.FormatException: IDX10400: Unable to decode: '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]' as Base64url encoded string.
+   at Microsoft.IdentityModel.Tokens.Base64UrlEncoding.ValidateAndGetOutputSize(ReadOnlySpan`1 strSpan, Int32 offset, Int32 length)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.CreateClaimSet(ReadOnlySpan`1 strSpan, Int32 startIndex, Int32 length, Boolean createHeaderClaimSet)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.ReadToken(ReadOnlyMemory`1 encodedTokenMemory)
+   --- End of inner exception stack trace ---
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.ReadToken(ReadOnlyMemory`1 encodedTokenMemory)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken..ctor(String jwtEncodedString)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ReadToken(String token, TokenValidationParameters validationParameters)
+2025-12-27 00:09:15.474 +02:00 [INF] Bearer was not authenticated. Failure message: IDX14102: Unable to decode the header '[PII of type 'Microsoft.IdentityModel.Logging.SecurityArtifact' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]' as Base64Url encoded string.
+2025-12-27 00:09:15.488 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-12-27 00:09:15.503 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-12-27 00:09:15.509 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/User/GetAllUsers - 401 0 null 452.1523ms
+2025-12-27 00:09:19.895 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/User/signIn - application/json 65
+2025-12-27 00:09:19.913 +02:00 [INF] CORS policy execution successful.
+2025-12-27 00:09:19.924 +02:00 [INF] Failed to validate the token.
+System.ArgumentException: IDX14102: Unable to decode the header '[PII of type 'Microsoft.IdentityModel.Logging.SecurityArtifact' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]' as Base64Url encoded string.
+ ---> System.FormatException: IDX10400: Unable to decode: '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]' as Base64url encoded string.
+   at Microsoft.IdentityModel.Tokens.Base64UrlEncoding.ValidateAndGetOutputSize(ReadOnlySpan`1 strSpan, Int32 offset, Int32 length)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.CreateClaimSet(ReadOnlySpan`1 strSpan, Int32 startIndex, Int32 length, Boolean createHeaderClaimSet)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.ReadToken(ReadOnlyMemory`1 encodedTokenMemory)
+   --- End of inner exception stack trace ---
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.ReadToken(ReadOnlyMemory`1 encodedTokenMemory)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken..ctor(String jwtEncodedString)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ReadToken(String token, TokenValidationParameters validationParameters)
+2025-12-27 00:09:19.940 +02:00 [INF] Bearer was not authenticated. Failure message: IDX14102: Unable to decode the header '[PII of type 'Microsoft.IdentityModel.Logging.SecurityArtifact' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]' as Base64Url encoded string.
+2025-12-27 00:09:19.945 +02:00 [INF] Executing endpoint 'authenAutherApp.Controllers.UserController.Signin (authenAutherApp)'
+2025-12-27 00:09:19.949 +02:00 [INF] Route matched with {action = "Signin", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Signin(authenAutherApp.Dtos.Request.SignInRequest) on controller authenAutherApp.Controllers.UserController (authenAutherApp).
+2025-12-27 00:09:19.996 +02:00 [INF] Executing action method authenAutherApp.Controllers.UserController.Signin (authenAutherApp) - Validation state: "Valid"
+2025-12-27 00:09:20.145 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[FullName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2025-12-27 00:09:20.339 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@user_Id='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @user_Id
+2025-12-27 00:09:20.356 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@userId='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @userId
+2025-12-27 00:09:20.382 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-12-27 00:09:20.389 +02:00 [INF] Executed action method authenAutherApp.Controllers.UserController.Signin (authenAutherApp), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 387.4067ms.
+2025-12-27 00:09:20.397 +02:00 [INF] Executing OkObjectResult, writing value of type 'authenAutherApp.Dtos.Response.SignInResponse'.
+2025-12-27 00:09:20.404 +02:00 [INF] Executed action authenAutherApp.Controllers.UserController.Signin (authenAutherApp) in 448.0719ms
+2025-12-27 00:09:20.409 +02:00 [INF] Executed endpoint 'authenAutherApp.Controllers.UserController.Signin (authenAutherApp)'
+2025-12-27 00:09:20.414 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/User/signIn - 200 null application/json; charset=utf-8 518.8966ms
+2025-12-27 00:09:36.334 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/User/GetAllUsers - null null
+2025-12-27 00:09:36.437 +02:00 [INF] Executing endpoint 'authenAutherApp.Controllers.UserController.GetAll (authenAutherApp)'
+2025-12-27 00:09:36.452 +02:00 [INF] Route matched with {action = "GetAll", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller authenAutherApp.Controllers.UserController (authenAutherApp).
+2025-12-27 00:09:36.508 +02:00 [INF] Executing action method authenAutherApp.Controllers.UserController.GetAll (authenAutherApp) - Validation state: "Valid"
+2025-12-27 00:09:36.594 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[FullName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser'
+2025-12-27 00:09:36.610 +02:00 [INF] Executed action method authenAutherApp.Controllers.UserController.GetAll (authenAutherApp), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 98.412ms.
+2025-12-27 00:09:36.618 +02:00 [INF] Executing OkObjectResult, writing value of type 'authenAutherApp.Dtos.Response.ResponseModel`1[[System.Collections.Generic.List`1[[authenAutherApp.Dtos.Response.UserReponse, authenAutherApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-27 00:09:36.627 +02:00 [INF] Executed action authenAutherApp.Controllers.UserController.GetAll (authenAutherApp) in 168.2904ms
+2025-12-27 00:09:36.632 +02:00 [INF] Executed endpoint 'authenAutherApp.Controllers.UserController.GetAll (authenAutherApp)'
+2025-12-27 00:09:36.638 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/User/GetAllUsers - 200 null application/json; charset=utf-8 304.0533ms

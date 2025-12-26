@@ -29,6 +29,17 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 builder.Host.UseSerilog();
 
+var allowAllOrigins = "allowAll";
+builder.Services.AddCors(option =>
+{
+    option.AddPolicy(allowAllOrigins, p =>
+    {
+        p.AllowAnyOrigin();
+        p.AllowAnyHeader();
+        p.AllowAnyMethod();
+            });
+});
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -94,7 +105,7 @@ if (app.Environment.IsDevelopment())
      });
 }
 
-
+app.UseCors(allowAllOrigins);
 app.UseHttpsRedirection();
 app.UseRouting();
 
